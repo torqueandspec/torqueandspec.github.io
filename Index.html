@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torque & Spec | Hand-Picked DIY Auto Tools</title>
+    <style>
+        :root {
+            --bg-dark: #121824;
+            --bg-card: #1e2640;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-amber: #f59e0b;
+            --accent-amber-hover: #d97706;
+            --border: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Amazon Compliance Bar */
+        .disclosure-bar {
+            background-color: #0f141c;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 8px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(18, 24, 36, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent-amber);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-amber);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-amber);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            padding: 0 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Product Grid Section */
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image-placeholder {
+            background-color: #1a2035;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-tag {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-amber);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Bullet lists */
+        .product-specs {
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            list-style-type: none;
+        }
+
+        .product-specs li {
+            margin-bottom: 6px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .product-specs li::before {
+            content: "✓";
+            color: var(--accent-amber);
+            font-weight: bold;
+        }
+
+        .product-specs li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Link button */
+        .affiliate-btn {
+            display: block;
+            background-color: var(--accent-amber);
+            color: #000;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .affiliate-btn:hover {
+            background-color: var(--accent-amber-hover);
+        }
+
+        footer {
+            background-color: #0f141c;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Amazon Disclosure -->
+    <div class="disclosure-bar">
+        As an Amazon Associate, I earn from qualifying purchases. Product prices and availability are accurate as of the date/time indicated and are subject to change.
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Torque<span>&</span>Spec</div>
+            <nav>
+                <a href="#featured">Essential Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Built for the <span>DIY Mechanic</span></h1>
+        <p>Real, no-nonsense recommendations on the socket sets, wrenches, and diagnostics you need to get the job done right.</p>
+    </section>
+
+    <div class="section-title" id="featured">Top Rated Essentials Every Garage Needs</div>
+
+    <section class="product-grid">
+        
+        <!-- Product 1: Socket Set -->
+        <div class="product-card">
+            <div class="product-image-placeholder">
+                [ Replace with Amazon Affiliate Image Link ]<br><strong>Mechanics Tool Set / Socket Set</strong>
+            </div>
+            <div class="product-info">
+                <span class="product-tag">Hand Tools</span>
+                <h2 class="product-title">Comprehensive Mechanics Socket Set</h2>
+                <p class="product-desc">A complete, heavy-duty socket set is the backbone of any repair job. Look for sets featuring 72-tooth ratchets with a minimal 5-degree arc swing to break loose stubborn fasteners in tight engine bays.</p>
+                <ul class="product-specs">
+                    <li>Includes standard (SAE) and metric sizes</li>
+                    <li>Chrome vanadium steel construction resists corrosion</li>
+                    <li>Durable hard-shell case keeps sizes organized</li>
+                </ul>
+                <a href="https://amzn.to/3Qv49PW" target="_blank" class="affiliate-btn">Check Latest Price on Amazon</a>
+            </div>
+        </div>
+
+        <!-- Product 2: Wrenches -->
+        <div class="product-card">
+            <div class="product-image-placeholder">
+                [ Replace with Amazon Affiliate Image Link ]<br><strong>Ratchet Wrench Combo Set</strong>
+            </div>
+            <div class="product-info">
+                <span class="product-tag">Hand Tools</span>
+                <h2 class="product-title">Combination Ratcheting Wrench Set</h2>
+                <p class="product-desc">When a thick socket won't clear the frame rail, a solid combination wrench set saves the day. Ratcheting box ends eliminate the need to constantly reset the wrench on the nut, cutting your wrenching time in half.</p>
+                <ul class="product-specs">
+                    <li>12-point box end ensures a secure grip on fasteners</li>
+                    <li>Off-corner loading design reduces fastener rounding</li>
+                    <li>Sleek, polished finish wipes clean easily</li>
+                </ul>
+                <a href="https://amzn.to/4xMLWy4" target="_blank" class="affiliate-btn">Check Latest Price on Amazon</a>
+            </div>
+        </div>
+
+        <!-- Product 3: OBD2 Scanner -->
+        <div class="product-card">
+            <div class="product-image-placeholder">
+                [ Replace with Amazon Affiliate Image Link ]<br><strong>Professional OBD2 Scanner</strong>
+            </div>
+            <div class="product-info">
+                <span class="product-tag">Diagnostics</span>
+                <h2 class="product-title">Bluetooth OBD2 Code Reader & Diagnostics</h2>
+                <p class="product-desc">Don't guess why a check engine light is glaring at you. A reliable OBD2 scanner reads trouble codes instantly, clears lights, monitors live data streams, and verifies emissions status before testing day.</p>
+                <ul class="product-specs">
+                    <li>Reads and clears generic and manufacturer-specific DTCs</li>
+                    <li>Real-time live sensor data streaming to identify misfires</li>
+                    <li>Saves a costly trip to the mechanic just to pull codes</li>
+                </ul>
+                <a href="https://amzn.to/4eAUA9Q" target="_blank" class="affiliate-btn">Check Latest Price on Amazon</a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Torque & Spec. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.75rem;">Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+    </footer>
+
+</body>
+</html>
