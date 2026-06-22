@@ -129,7 +129,7 @@
             max-width: 1200px;
             margin: 0 auto 80px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             padding: 0 20px;
         }
@@ -143,21 +143,8 @@
             flex-direction: column;
         }
 
-        .product-image-placeholder {
-            background-color: #1a2035;
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--border);
-            text-align: center;
-            padding: 20px;
-        }
-
         .product-info {
-            padding: 25px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -192,18 +179,18 @@
         .product-specs {
             background-color: rgba(0, 0, 0, 0.15);
             border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 15px;
+            margin-bottom: 25px;
             font-size: 0.85rem;
             list-style-type: none;
         }
 
         .product-specs li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .product-specs li::before {
@@ -222,10 +209,13 @@
             background-color: var(--accent-amber);
             color: #000;
             text-align: center;
-            padding: 12px;
+            padding: 14px;
             border-radius: 6px;
             font-weight: 700;
             text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
             transition: background-color 0.2s;
         }
 
@@ -270,9 +260,6 @@
         
         <!-- Product 1: Socket Set -->
         <div class="product-card">
-            <div class="product-image-placeholder">
-                [ Replace with Amazon Affiliate Image Link ]<br><strong>Mechanics Tool Set / Socket Set</strong>
-            </div>
             <div class="product-info">
                 <span class="product-tag">Hand Tools</span>
                 <h2 class="product-title">Comprehensive Mechanics Socket Set</h2>
@@ -288,9 +275,6 @@
 
         <!-- Product 2: Wrenches -->
         <div class="product-card">
-            <div class="product-image-placeholder">
-                [ Replace with Amazon Affiliate Image Link ]<br><strong>Ratchet Wrench Combo Set</strong>
-            </div>
             <div class="product-info">
                 <span class="product-tag">Hand Tools</span>
                 <h2 class="product-title">Combination Ratcheting Wrench Set</h2>
@@ -306,9 +290,6 @@
 
         <!-- Product 3: OBD2 Scanner -->
         <div class="product-card">
-            <div class="product-image-placeholder">
-                [ Replace with Amazon Affiliate Image Link ]<br><strong>Professional OBD2 Scanner</strong>
-            </div>
             <div class="product-info">
                 <span class="product-tag">Diagnostics</span>
                 <h2 class="product-title">Bluetooth OBD2 Code Reader & Diagnostics</h2>
